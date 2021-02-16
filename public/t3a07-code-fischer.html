@@ -1,0 +1,187 @@
+<script>
+function myHitOther(my1,my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+</script>
+
+
+<img id="myImg01" style="position:absolute; left:200; top:200; width:100; height:100;" img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/jeff.png?raw=true" alt="racetrack" width="15" height="200">
+<img id="myImg02" style="position:absolute; left:400; top:200; width:100; height:100;" img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/jeff.png?raw=true" alt="racetrack" width="15" height="200">
+
+
+<input type=button value="go Right"  onclick="{
+   document.getElementById('myImg01').style.left =
+      parseInt(document.getElementById('myImg01').style.left) + 10
+   if ( myHitOther('myImg01','myImg02') ){
+      document.getElementById('myImg01').style.left = '20px'
+   }
+}">
+
+<div><br />
+<head>
+<style>
+          body {
+		      transition: filter 0.7s, background-color 0.7s, background-image 0.7s;
+             
+			  background:white
+          }
+		  iframe {
+			  transition: filter 0.7s;
+		  }
+          * {
+		      font-family: Arial, Helvetica, sans-serif;
+		  }
+          #main {
+              margin: auto;
+              top: 100%;
+              width: 50.000em;
+              border-radius: 12px;
+              transition: filter 0.7s, background-image 0.7s;
+			  background-color: #e1e4ea;
+          }
+</style>
+</head>
+</div>
+<h1 align=center>T4A07 Code</h1>
+<div align=center>WASD to move</div>
+<div align=center>This is John
+<div id="myDiv01" style="position:absolute; left:250; top:200; " ><b><img src="https://github.com/mariofish/fischer-coding-2021/blob/main/public/assets/standingclr.png?raw=true" alt="Bigman" width="100" height="150"><br>
+</b></div>
+<div id="myDiv02" style="position:absolute; left:350; top:200; " ><b><img src="https://github.com/mariofish/fischer-coding-2021/blob/main/public/assets/standingclr.png?raw=true" alt="Bigman" width="100" height="150"><br>
+</b></div>
+<div align=center><input type=button value="↖" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+}">
+<input type=button value="↑" style="color:white; background-color:red " onclick="{ document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+}">
+<input type=button value="↗" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+}"></div>
+<div align=center><input type=button value="←" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+}">
+<input type=button value="→" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+}"></div>
+<div align=center><input type=button value="↙" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+}">
+<input type=button value="↓" style="color:white; background-color:red " onclick="{ document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+}">
+<input type=button value="↘" style="color:white; background-color:red; " onclick="{ document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+}"></div>
+<br>
+<div align=center><input type=button value="↖" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+}">
+<input type=button value="↑" style="color:white; background-color:blue " onclick="{ document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+}">
+<input type=button value="↗" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+}"></div>
+<div align=center><input type=button value="←" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+}">
+<input type=button value="→" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+}"></div>
+<div align=center><input type=button value="↙" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+}">
+<input type=button value="↓" style="color:white; background-color:blue " onclick="{ document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+}">
+<input type=button value="↘" style="color:white; background-color:blue; " onclick="{ document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+if ( myHitOther('myDiv01','myDiv02') ){
+    document.getElementById('myImg01').style.left = '20px'
+   }
+}"></div>
+<div align=center>This is Ron
+<div align=center>IJKL to move
+<!-- Jeff movement -->
+<body onkeydown="{
+    if (event.key == 'w'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+    }
+    if (event.key == 'a'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+    }
+    if (event.key == 's'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+    }
+    if (event.key == 'd'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+    }
+    <!-- capitals -->
+    if (event.key == 'W'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+    }
+    if (event.key == 'A'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+    }
+    if (event.key == 'S'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+    }
+    if (event.key == 'D'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+        
+<!-- Ron Movement -->
+    }
+    if (event.key == 'i'){
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+    }
+    if (event.key == 'j'){
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+    }
+    if (event.key == 'k'){
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+    }
+    if (event.key == 'l'){
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+    }
+    <!-- capitals -->
+    if (event.key == 'I'){
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+    }
+    if (event.key == 'J'){
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+    }
+    if (event.key == 'K'){
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+    }
+    if (event.key == 'L'){
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+    }
+    if (event.key == 'w' & 'i'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) - 5
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) - 5
+    }
+    if (event.key == 's' & 'k'){
+        document.getElementById('myDiv01').style.top = parseInt(document.getElementById('myDiv01').style.top) + 5
+        document.getElementById('myDiv02').style.top = parseInt(document.getElementById('myDiv02').style.top) + 5
+    }
+    if (event.key == 'd' & 'l'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) + 5
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) + 5
+    }
+    if (event.key == 'a' & 'j'){
+        document.getElementById('myDiv01').style.left = parseInt(document.getElementById('myDiv01').style.left) - 5
+        document.getElementById('myDiv02').style.left = parseInt(document.getElementById('myDiv02').style.left) - 5
+   }
+}">
+<div>
+<div align=left>
+<p><img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/racetrack.png?raw=true" alt="" width="9" height="131" />
+<img style="float: right;" src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/racetrack.png?raw=true" alt="" width="9" height="131" /></p>
+</b></div>
