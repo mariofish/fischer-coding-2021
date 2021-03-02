@@ -1,0 +1,92 @@
+<!-- Basic Input/Output -->
+<h1><small> Basic Input/Output </small></h1>
+<input type= text id="myText0" value="3"><br>
+
+<input type=button value=run onClick="{
+let myTemp0 = document.getElementById('myText0').value
+document.getElementById('myDiv0').innerHTML = myTemp0
+}">
+
+<div id="myDiv0">...</div>
+
+<!-- If statement -->
+<h1><small> Basic If/Else </small></h1>
+<i> 3 = a, else = b </i><br>
+<input type= text id="myText01" value="3"><br>
+
+<input type=button value=run onClick="{
+let myTemp = document.getElementById('myText01').value
+if (myTemp == 3)
+{
+    document.getElementById('myDiv01').innerHTML = ('a')
+}
+else
+{
+    document.getElementById('myDiv01').innerHTML = ('b')}
+}"
+>
+<div id="myDiv01">...</div>
+
+<br>
+<!-- Colour Change -->
+<h1><small> <font color="#FF0000">C</font><font color="#FF8000">o</font><font color="#FFE000">l</font><font color="#46FF00">o</font><font color="#0068FF">u</font><font color="#6800FF">r</font> Change </small></h1>
+<i>1=<font color="#FF0000">red</font>, 2=<font color="#FF8000">orange</font>, 3=<font color="#FFE000">yellow</font>, 4=<font color="#46FF00">green</font>, 5=<font color="#0068FF">blue</font>, 6=<font color="#6800FF">purple</font></i><br>
+<input type= text id="myText02" value="1"><br>
+
+<input type=button value=run onClick="{
+let myTemp2 = document.getElementById('myText02').value
+if (myTemp2 == 1)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#FF0000;>colour</p>')
+}
+else if (myTemp2 == 2)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#FF8000;>colour</p>')
+}
+else if (myTemp2 == 3)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#FFE000;>colour</p>')
+}
+else if (myTemp2 == 4)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#46FF00;>colour</p>')
+}
+else if (myTemp2 == 5)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#0068FF;>colour</p>')
+}
+else if (myTemp2 == 6)
+{
+    document.getElementById('myDiv02').innerHTML = ('<p style= color:#6800FF;>colour</p>')
+}
+else
+{
+    document.getElementById('myDiv02').innerHTML = ('colour')}
+}"
+>
+<div id="myDiv02"><br>colour</div>
+
+<!-- Age thing -->
+<h1><small> Age Thingy </small></h1>
+<i>You can change the name and gender</i><br>
+<label for="genderMan">Male</label>
+<input type="radio" name="myGender" value="man" checked>
+<label for="genderWoman">Female</label>
+<input type="radio" name="myGender" value="woman"><br>
+
+<input type=text id="myName01"value="John"><br>
+<input type=text id="myAge01"value="16"><br>
+
+<input type=button value=run onClick="{
+    let myAge = Math.abs(document.getElementById('myAge01').value)
+    let myName = document.getElementById('myName01').value
+    let myTemp3 = myName + ' is a teenager '
+    if (myAge <= 4){ myTemp3 = myName + ' is a baby'}
+    if (myAge >= 4 && myAge < 12){ myTemp3 = myName + ' is a child'}
+    if (myAge >= 20 && myAge < 65 ){ myTemp3 = myName + ' is an adult'}
+    if (myAge >= 65 && myAge < 95 ) { myTemp3 = myName + ' is a senior'}
+    if (myAge >= 95 && myAge < 105 ) { myTemp3 = myName + ' is on their death bed'}
+    if (myAge >= 105){ myTemp3 = myName + ' is dead'}
+    document.getElementById('myDiv03').innerHTML = myTemp3
+}">
+<div id="myDiv03">...</div>
