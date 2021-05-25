@@ -83,11 +83,52 @@ function myBulletFire(){
 </script>
 
 
+<body onkeydown="{
+    myIsOnScreen()
+    if (event.key == 'w'){
+        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
+    }
+    if (event.key == 'a'){
+        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - document.myXmove
+    }
+    if (event.key == 's'){
+        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
+    }
+    if (event.key == 'd'){
+     document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + document.myXmove
+
+    }
+    if (event.key == 'w'){
+        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01-1').style.top) - 10
+    }
+    if (event.key == 'a'){
+        document.getElementById('mySpan01-1').style.left = parseInt(document.getElementById('mySpan01-1').style.left) - + document.myXmove
+    }
+    if (event.key == 's'){
+        document.getElementById('mySpan01-1').style.top = parseInt(document.getElementById('mySpan01-1').style.top) + 10
+    }
+    if (event.key == 'd'){
+        document.getElementById('mySpan01-1').style.left = parseInt(document.getElementById('mySpan01-1').style.left ) + document.myXmove
+    }
+    <!-- capitals -->
+    if (event.key == 'W'){
+        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
+    }
+    if (event.key == 'A'){
+        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
+    }
+    if (event.key == 'S'){
+        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
+    }
+    if (event.key == 'D'){
+        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+
+}">
 
 <h1 align=center>T4A16-bullet-name.html</h1>
 
 
-<input type=button value="Fire" onClick="{
+<input type=onkeydown onkeypress="{
     document.myNumBullets += 1
     if (document.myNumBullets > document.myBulletMax){
        document.myNumBullets = 1
@@ -101,7 +142,7 @@ function myBulletFire(){
                         
 }">
 
-<input type=button value="right" onClick="{
+<input type= value="right" onClick="{
   document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + document.myXmove
 
   myCheckAll()
