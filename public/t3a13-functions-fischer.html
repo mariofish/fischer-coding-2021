@@ -1,0 +1,42 @@
+
+<h1 alighn=center> T3A13 Functions Fischer</h1>
+
+<script>
+    function myBasicFun(){
+        document.getElementById('mySpan01').innerHTML = "wow"
+    }
+    funtion myAdvancedFun(x, y){
+        return x*y
+}
+
+</script> 
+
+<input id="myText01" type=text value=3 ><br><br>
+    <input type=button value="Run function" onclick="{
+        //alert('button works')
+        myBasicFun()
+    }"><br><br>
+        <input type=button value"Advanced" onclick="{
+            document.getElementById('mySpan01').innerHTML = myAdvancedFun(7,2)
+        }"><br><br>
+        <span id="mySpan01" >...</span><br><br>
+
+        <!DOCTYPE html>
+<html>
+<body>
+
+
+
+<p id="demo"></p>
+
+<script>
+var text = "";
+var i;
+for (i = 0; i < 7; i++) {
+  text += "The number is " + i + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

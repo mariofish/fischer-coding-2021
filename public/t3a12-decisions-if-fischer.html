@@ -1,0 +1,57 @@
+<input id="myText01" type=text value=3 > <br><br>
+<input type=button value="Show X" onclick="{
+    x = document.getElementById('myText01').value
+    myTemp = '..........'
+    if (x >= 2 ){myTemp = 'something'} 
+    document.getElementById('mySpan01').innerHTML= myTemp
+} "><br><br>
+<span id="mySpan01">...</span> 
+<br><br>
+
+
+
+
+<input id="myText02a" tpye=text value=3>
+<input id="myText02b" tpye=text value=-7 ><br>
+<input type=button value="decide x and y" onlcick="{
+    myX = document.getElementById('myText02a').value
+    myY = document.getElementByID('myText02b').valuemyTemp = '................'
+    if (myX > 2 && myY < -4){
+        myTemp = 'x greater than 2 and y less than -4'
+    } else {
+        myTemp 'not'
+    }
+    document.getElementById('mySpan02').innerHTML = myTemp
+}"><br>
+<span id="mySpan02">....</span><br><br>
+
+
+
+
+
+    "
+    <!DOCTYPE html>
+<html>
+<body>
+
+<p>This will say Good day if it's day time, and Good night if its night:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var hour = new Date().getHours(); 
+  var greeting;
+  if (hour < 18) {
+    greeting = "Good day";
+  } else {
+    greeting = "Good night";
+  }
+  document.getElementById("demo").innerHTML = greeting;
+}
+</script>
+
+</body>
+</html>

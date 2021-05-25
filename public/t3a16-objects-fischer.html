@@ -1,0 +1,82 @@
+<h1 align=center>Objects</h1>
+<h4 align=center><i> Objects, decisions, and decimals by Fischer</i></h4>
+
+You add bodyTemp and determine if the user has a fever<br>
+advanced: input ouput the body temp into the object<br>
+
+<body id="myBody">
+<br>
+<input type=button value="First Name" id="button01"onclick="{
+var myObj = {}
+myObj=JSON.parse(document.getElementById('myTextA01').value)
+document.getElementById('myDiv01').innerHTML = 'Mr/Mrs '+ myObj.lastname+ '`s first name is '+myObj.firstname
+}"><input type=button value="Last Name" id="button02"onclick="{
+var myObj = {}
+myObj=JSON.parse(document.getElementById('myTextA01').value)
+document.getElementById('myDiv01').innerHTML = myObj.firstname +'`s last name is '+myObj.lastname
+}">
+<input type=button value="Age" id="button03"onclick="{
+var myObj = {}
+myObj=JSON.parse(document.getElementById('myTextA01').value)
+document.getElementById('myDiv01').innerHTML = myObj.firstname+' is '+myObj.age+' years old'
+}">
+<input type=button value="Birth Date" id="button04"onclick="{
+var myObj = {}
+myObj=JSON.parse(document.getElementById('myTextA01').value)
+document.getElementById('myDiv01').innerHTML = myObj.firstname+' was born '+myObj.birthdate
+document.getElementById('myTextArea01').value = myPrintout
+}">
+<input type=button value="Body Temperature" id="button05"onclick="{
+var myObj = {}
+myObj=JSON.parse(document.getElementById('myTextA01').value)
+document.getElementById('myDiv01').innerHTML = myObj.firstname+' is '+myObj.bodytemp + '°C'
+}">
+<br>
+
+<textarea rows="8" cols="70" id="myTextA01" >{
+"firstname":"Ron",
+"lastname":"Johnson",
+"age":"45",
+"birthdate":"01/01/2000",
+"bodytemp":"36"
+}
+</textarea>
+
+<div id="myDiv01">...</div>
+
+<!-- Age thing -->
+<h1><small> Fever Thingy </small></h1>
+<i>You can change the name and gender and body temperature</i><br>
+<label for="genderMan">Male</label>
+<input type="radio" name="myGender" value="man" checked>
+<label for="genderWoman">Female</label>
+<input type="radio" name="myGender" value="woman"><br>
+Name:<br> <input type=text id="myName01"value="John"><br>
+Age:<br> <input type=text id="myAge01"value="16"><br>
+Body Temp:<br> <input type=text id="myBodyTemp01" value="36.1">°C <br>
+
+<input type=button value=run onClick="{
+    let myAge = Math.abs(document.getElementById('myAge01').value)
+    let myBodyTemp = Math.abs(document.getElementById('myBodyTemp01').value)
+    let myName = document.getElementById('myName01').value
+    let myTemp3 = myName + ' is a teenager '
+    if (myAge <= 4){ myTemp3 = myName + ' is a baby'}
+    if (myAge >= 4 && myAge < 12){ myTemp3 = myName + ' is a child'}
+    if (myAge >= 20 && myAge < 65 ){ myTemp3 = myName + ' is an adult'}
+    if (myAge >= 65 && myAge < 95 ) { myTemp3 = myName + ' is a senior'}
+    if (myAge >= 95 && myAge < 105 ) { myTemp3 = myName + ' is on their death bed'}
+    if (myAge >= 105){ myTemp3 = myName + ' is dead'}
+    if (myAge == 69) { myTemp3 = 'nice'}
+    if (myAge == 420) { myTemp3 = 'nice'}
+    let myTemp4 = myName + ' is a teenager '
+    if (myBodyTemp <= 4){ myTemp4 = myName + '`s body temperature is lizard-like'}
+    if (myBodyTemp >= 4 && myBodyTemp < 12){ myTemp4 = myName + 's` body temperature is cold'}
+    if (myBodyTemp >= 20 && myBodyTemp < 65 ){ myTemp4 = myName + '`s body temperature is normal'}
+    if (myBodyTemp >= 65 && myBodyTemp < 95 ) { myTemp4 = myName + ' has a fever'}
+    if (myBodyTemp >= 95 && myBodyTemp < 105 ) { myTemp4 = myName + '`s probably on fire'}
+    if (myBodyTemp >= 105){ myTemp4 = myName + ' is a pile of ash'}
+    document.getElementById('myDiv03').innerHTML = myTemp3
+    document.getElementById('myDiv04').innerHTML = myTemp4
+}">
+<div id="myDiv03">...</div>
+<div id="myDiv04">...</div>
