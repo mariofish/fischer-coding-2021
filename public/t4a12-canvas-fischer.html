@@ -1,0 +1,122 @@
+<h2 align=center>T4A12 Canvas by Fischer</h2>
+
+You use loops and variables to make fast fancy drawings <br>
+<table style="height: 245px;" width="568">
+<tbody>
+<tr>
+<td style="width: 274px;">&nbsp;
+Line Size<br>
+<input type= number id="myLineTo1" value="30" maxlength="4" size="2"><br>
+<input type= number id="myLineTo2" value="200" maxlength="4" size="2"><br>
+Line Move<br>
+<input type= number id="myLineMove1" value="20" maxlength="4" size="2"><br>
+<input type= number id="myLineMove2" value="10" maxlength="4" size="2"><br>
+Line Color<br>
+<input type= color id="myColor1" value="green" maxlength="4" size="2"><br>
+
+<input type= button value="Line Button" onclick="{
+    myContext.beginPath();
+    myContext.lineWidth = 1;
+    myContext.moveTo(document.getElementById('myLineMove1').value, document.getElementById('myLineMove2').value);
+    myContext.lineTo(document.getElementById('myLineTo1').value, document.getElementById('myLineTo2').value);
+    myContext.stroke();
+    myContext.strokeStyle= document.getElementById('myColor1').value;
+}"><br>
+Arc Size<br>
+<input type= number id="myArc3" value="40" maxlength="4" size="2"><br>
+<input type= number id="myArc4" value="0" maxlength="4" size="2"><br>
+<input type= number id="myArc5" value="2" maxlength="4" size="2"><br>
+Arc Move<br>
+<input type= number id="myArc1" value="95" maxlength="4" size="2"><br>
+<input type= number id="myArc2" value="50" maxlength="4" size="2"><br>
+Arc Color<br>
+<input type= color id="myColor2" value="green" maxlength="4" size="2"><br>
+<input type= button value="Arc Button" onclick="{
+    myContext.beginPath();
+    myContext.lineWidth = 10;
+    myContext.arc(document.getElementById('myArc1').value, document.getElementById('myArc2').value, document.getElementById('myArc3').value, document.getElementById('myArc4').value, document.getElementById('myArc5').value * Math.PI);
+    myContext.stroke();
+    myContext.strokeStyle= document.getElementById('myColor2').value;
+}"><br>
+Custom Text<br>
+<input type= text id="myText01" value="Cool text"><br>
+<input type=button value="Custom Text Button" onclick="{
+    myContext.font = '20px Arial';
+    myContext.fillText(document.getElementById('myText01').value, 400, 100);
+    myContext.translate(document.getElementById('myCTextTo1').value, document.getElementById('myCTextTo2').value);
+    myContext.stroke();
+    myContext.strokeStyle= document.getElementById('myColor3').value;
+    myContext.resetTransfrom();
+    //myContext.rotate(-60 * Math.PI / 180);
+}"><br> 
+Text Size<br> 
+<input type= number id="myCTextTo1" value="30" maxlength="4" size="2"><br>
+<input type= number id="myCTextTo2" value="200" maxlength="4" size="2"><br>
+Text Move<br>
+<input type= number id="myCTextMove1" value="20" maxlength="4" size="2"><br>
+<input type= number id="myCTextMove2" value="10" maxlength="4" size="2"><br>
+Text Color<br>
+<input type= color id="myColor3" value="green" maxlength="4" size="2"><br>
+<br>
+<input type=button value=".quadraticCurveTo(100,220,240,110)" onclick="{
+    myContext.beginPath();
+    myContext.moveTo(300,100);
+    myContext.quadraticCurveTo(100,220,240,110);
+    myContext.stroke();
+}"><br> 
+
+<input type=button value=".createLinearGradient(100, 300, 200, 400)" onclick="{
+    let myGradient = myContext.createLinearGradient(100, 300, 200, 400);
+    myGradient.addColorStop(0, 'red');
+    myGradient.addColorStop(0.5 'blue');
+    myGradient.addColorStop(1, 'yellow');
+    
+    myContext.fillStyle = myGradient;
+    myContext.fillRect(100, 300, 200, 400);
+    
+    // reset fillStyle
+    myContext.fillStyle = 'black';
+}"><br>
+
+<input type=button value="clearRect(20, 20, 50, 50)" onclick="{
+    myContext.clearRect(20, 20, 50, 50);
+}">
+
+<input type=button value="Clear All" onclick="{
+    myContext.clearRect(0, 0, myCanvas.width, myCanvas.height);
+}">
+<br>
+</td>
+<td style="width: 278px;">&nbsp;
+Position
+<br>
+<div id="myPos" value="0"><input type= text id="myTextPos" value="0, 0" maxlength="15" size="15" readonly>
+<br>
+Click on canvas to get position
+<canvas id="myCoolTag" width="1000" height="600" style="border:1px solid #000000;"></canvas>
+
+<script>
+   // set up global variables
+   let myCanvas=document.getElementById('myCoolTag');
+   let myContext=myCanvas.getContext('2d');
+   var canvas = document.getElementById("myCoolTag");
+var ctx = canvas.getContext("2d");
+
+//report the mouse position on click
+canvas.addEventListener("click", function (evt) {
+    var mousePos = getMousePos(canvas, evt);
+    document.getElementById('myTextPos').value =(mousePos.x + ', ' + mousePos.y);
+}, false);
+
+//Get Mouse Position
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
+}
+</script>
+</tr>
+</tbody>
+</td>
