@@ -50,26 +50,26 @@ function myCheckAll(){
 if (parseInt(document.getElementById('mySpan01').style.top) -5  > window.innerHeight) { 
     document.getElementById('mySpan01').style.top = '100px' 
     alert('You Lose!')
-    location = 'T4A17-flappy-bird-name.html'
+    location = 't4a17-flappy-bird-fischer.html'
 }
 
 
   if(myHitOther('mySpan01', 'mySpan02')){
     document.getElementById('mySpan02').style.left = '-400px'
     alert('You Lose!')
-    location = 'T4A17-flappy-bird-name.html'
+    location = 't4a17-flappy-bird-fischer.html'
   }
 
   if(myHitOther('mySpan01', 'mySpan03')){
     document.getElementById('mySpan03').style.left = '-400px'
     alert('You Lose!')
-    location = 'T4A17-flappy-bird-name.html'
+    location = 't4a17-flappy-bird-fischer.html'
   }
 
   if(myHitOther('mySpan01', 'mySpan04')){
     document.getElementById('mySpan04').style.left = '-400px'
     alert('You Lose!')
-    location = 'T4A17-flappy-bird-name.html'
+    location = 't4a17-flappy-bird-fischer.html'
   }
 
 
@@ -77,7 +77,7 @@ if (parseInt(document.getElementById('mySpan01').style.top) -5  > window.innerHe
   if(myHitOther('mySpan01', 'mySpan200')){
     document.getElementById('mySpan03').style.left = '-400px'
     alert('You Win!')
-    location = 'https://google.ca'
+    location = 't4a17-flappy-bird-fischer.html'
   }
 
   // your other checks go here
@@ -110,7 +110,7 @@ document.myXtimer = setInterval( myXAuto , document.myXspeed);
 
 
 
-<h1 align=center>T4A17-flappy-bird-name.html</h1>
+<h1 align=center>T4A17 Flappy Bird Clone By Fischer</h1>
 
 
 
@@ -123,7 +123,7 @@ document.myXtimer = setInterval( myXAuto , document.myXspeed);
 
 
 <span title="1" id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">
-   Span 1 </span><br>
+   <img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman1HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br>
 <span title="2"  id="mySpan02" style="position:absolute; left:900; top:100; width:45; height:30"> 
    Span 2 </span><br>
 <span title="3"  id="mySpan03" style="position:absolute; left:900; top:300; width:45; height:30"> 
