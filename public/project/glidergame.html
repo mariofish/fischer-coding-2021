@@ -34,7 +34,8 @@ body {
            myCheckAll()  
 
       }
-}"></body>
+}">
+</body>
 
 <script>
 
@@ -73,12 +74,28 @@ function myHitOther(my1,my2){
 
 
 function myCheckAll(){
+  // your other checks go here
 
+  if(parseInt(document.getElementById('myTextLife').value)  <=0  ){    // life points at zero
+    alert('You Lose!')
+    location = 'glidergame.html'    // refresh page
+  }
+
+     let myInterval
+function myIsOnScreen(){
+    if (parseInt(document.getElementById('myCoin1').style.left) < 10) {
+        document.getElementById('myCoin1').style.left = '275px'
+    }
+    if (parseInt(document.getElementById('myEnemy1').style.left) < 10) {
+        document.getElementById('myCoin1').style.left = '275'
+    }
+
+
+}
 //collisions
 if (parseInt(document.getElementById('myPlayer').style.top) -5  > window.innerHeight) { 
-    document.getElementById('myPlayer').style.top = '100px' 
-    alert('You Lose!')
-    location = 'glidergame.html'
+   document.getElementById('myTextLife').value = parseInt(document.getElementById('myTextLife').value) - 20
+    
 }
   if(myHitOther('myPlayer', 'myCoin1')){
     document.getElementById('myCoin1').style.left = '-400px'
@@ -108,13 +125,7 @@ if (parseInt(document.getElementById('myPlayer').style.top) -5  > window.innerHe
     document.getElementById('myEnemy1').style.left = '-400px'
     alert('You Win!')
     location = 'glidergame.html'
-  }
-
-  // your other checks go here
-
-  if(parseInt(document.getElementById('myTextLife').value)  <=0  ){    // life points at zero
-    alert('You Lose!')
-    location = 'glidergame.html'    // refresh page
+  
   }
 }
 
@@ -123,7 +134,10 @@ function myXAuto(){
 
   document.getElementById('myPlayer').style.top = parseInt(document.getElementById('myPlayer').style.top) + document.myGravity
 
-  document.getElementById('myCoin1').style.left = parseInt(document.getElementById('myCoin1').style.left) + document.myXmove 
+
+    document.getElementById('myCoin1').style.left = parseInt(document.getElementById('myCoin1').style.left) + document.myXmove 
+  document.getElementById('myCoin1').style.left = parseInt(document.getElementById('myCoin1').style.left) + Math.floor(Math.random()*10) -1 + document.myXmove 
+  document.getElementById('myCoin1').style.top  = parseInt(document.getElementById('myCoin1').style.top) + Math.floor(Math.random()*10) -1 + document.myXmove 
   document.getElementById('myCoin2').style.left = parseInt(document.getElementById('myCoin2').style.left) + document.myXmove 
   document.getElementById('myCoin3').style.left = parseInt(document.getElementById('myCoin3').style.left) + document.myXmove 
   document.getElementById('myCoin4').style.left = parseInt(document.getElementById('myCoin4').style.left) + document.myXmove 
@@ -155,18 +169,6 @@ function myXAuto(){
 clearInterval(document.myXtimer)                    
 document.myXtimer = setInterval( myXAuto , document.myXspeed);
 
-
-   let myInterval
-function myIsOnScreen(){
-    if (parseInt(document.getElementById('myEnemy1').style.left) < 10) {
-        document.getElementById('myEnemy1').style.left = '275px'
-    }
-    if (parseInt(document.getElementById('myEnemy1').style.left) < 10) {
-        document.getElementById('myEnemy1').style.left = '275'
-    }
-
-
-}
 </script>
 
 <h1 align=center>Glider Game</h1>
