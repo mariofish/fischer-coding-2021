@@ -47,26 +47,22 @@ function myHitOther(my1,my2){
 function myCheckAll(){
 
 
-if (parseInt(document.getElementById('mySpan01').style.top) -5  > window.innerHeight) { 
-    document.getElementById('mySpan01').style.top = '100px' 
+if (parseInt(document.getElementById('myPlayer').style.top) -5  > window.innerHeight) { 
+    document.getElementById('myPlayer').style.top = '100px' 
     alert('You Lose!')
     location = 't4a17-flappy-bird-fischer.html'
 }
 
 
-  if(myHitOther('mySpan01', 'mySpan02')){
-    document.getElementById('mySpan02').style.left = '-400px'
-    alert('You Lose!')
-    location = 't4a17-flappy-bird-fischer.html'
+  if(myHitOther('myPlayer', 'myCoin')){
+    document.getElementById('myCoin').style.left = '-400px'
+    document.getElementById('myTextScore').value = parseInt(document.getElementById('myTextScore').value) + 1
   }
 
-  if(myHitOther('mySpan01', 'mySpan03')){
-    document.getElementById('mySpan03').style.left = '-400px'
-    alert('You Lose!')
-    location = 't4a17-flappy-bird-fischer.html'
+  if(myHitOther('myPlayer', 'myEnemy')){
+    document.getElementById('myTextLife').value = parseInt(document.getElementById('myTextLife').value) - 1
   }
-
-  if(myHitOther('mySpan01', 'mySpan04')){
+  if(myHitOther('myPlayer', 'mySpan04')){
     document.getElementById('mySpan04').style.left = '-400px'
     alert('You Lose!')
     location = 't4a17-flappy-bird-fischer.html'
@@ -74,26 +70,35 @@ if (parseInt(document.getElementById('mySpan01').style.top) -5  > window.innerHe
 
 
 
-  if(myHitOther('mySpan01', 'mySpan200')){
-    document.getElementById('mySpan03').style.left = '-400px'
+  if(myHitOther('myPlayer', 'mySpan200')){
+    document.getElementById('myEnemy').style.left = '-400px'
     alert('You Win!')
     location = 't4a17-flappy-bird-fischer.html'
   }
 
   // your other checks go here
 
+  if(parseInt(document.getElementById('myTextLife').value)  <=0  ){    // life points at zero
+    alert('You Lose!')
+    location = 't4a17-flappy-bird-fischer.html'    // refresh page
+  }
 }
 
 
 function myXAuto(){
 
-  document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + document.myGravity
+  document.getElementById('myPlayer').style.top = parseInt(document.getElementById('myPlayer').style.top) + document.myGravity
 
-  document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + document.myXmove 
+  document.getElementById('myCoin').style.left = parseInt(document.getElementById('myCoin').style.left) + document.myXmove 
  
-  document.getElementById('mySpan03').style.left = parseInt(document.getElementById('mySpan03').style.left) + document.myXmove 
+  ranX1 = Math.floor(Math.random()*20) -10
+  ranY1 = Math.floor(Math.random()*20) -10
+  //document.getElementById('myEnemy').style.left = parseInt(document.getElementById('myEnemy').style.left) + document.myXmove 
+  document.getElementById('myEnemy').style.left = parseInt(document.getElementById('myEnemy').style.left) + ranX1 + document.myXmove 
+  document.getElementById('myEnemy').style.top  = parseInt(document.getElementById('myEnemy').style.top) + ranY1 + document.myXmove 
+  
 
-   document.getElementById('mySpan04').style.left = parseInt(document.getElementById('mySpan04').style.left) + document.myXmove 
+  document.getElementById('').style.left = parseInt(document.getElementById('mySpan04').style.left) + document.myXmove 
  
 
   myCheckAll()
@@ -113,7 +118,9 @@ document.myXtimer = setInterval( myXAuto , document.myXspeed);
 <h1 align=center>T4A17 Flappy Bird Clone By Fischer</h1>
 
 
+Score: <input id="myTextScore" type=text value=0 ><br>
 
+Life: <input id="myTextLife" type=number value=20 ><br><br>
 <!--
 <input type=button value="helper button" onClick="{
   alert()
@@ -122,12 +129,12 @@ document.myXtimer = setInterval( myXAuto , document.myXspeed);
 -->
 
 
-<span title="1" id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">
+<span title="1" id="myPlayer" style="position:absolute; left:100; top:150; width:45; height:30">
    <img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman1HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br>
-<span title="2"  id="mySpan02" style="position:absolute; left:900; top:100; width:45; height:30"> 
-   Span 2 </span><br>
-<span title="3"  id="mySpan03" style="position:absolute; left:900; top:300; width:45; height:30"> 
-   Span 3 </span><br>
+<span title="2"  id="myCoin" style="position:absolute; left:900; top:100; width:45; height:30"> 
+   myCoin</span><br>
+<span title="3"  id="myEnemy" style="position:absolute; left:900; top:300; width:45; height:30"> 
+   myEnemy</span><br>
 
 <span title="4"  id="mySpan04" style="position:absolute; left:1100; top:150; width:45; height:30"> 
    Span 3 </span><br>

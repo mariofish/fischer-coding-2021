@@ -10,7 +10,7 @@ document.myBulletMove = 7   // amount it moves in pixels
 
 document.myBulletDelay = 20 // speed as a delay in milliseconds bigger is slower
 
-document.myBulleTimer = 0;
+document.myBulletTimer = 10;
 
 
 
@@ -56,14 +56,14 @@ for (let x=1;  x <= document.myBulletMax; x++){
   if(myHitOther('mySpan01', 'mySpan02')){
     document.getElementById('mySpan02').style.left = '-400px'
     alert('You Lose!')
-    location = 'T4A16-bullet-name.html'
+    location = 't4a16-bullet-fischer.html'
   }
 
 
   if(myHitOther('mySpan01', 'mySpan03')){
     document.getElementById('mySpan03').style.left = '-400px'
     alert('You Win!')
-    location = 'https://google.ca'
+    location = 't4a16-bullet-fischer.html'
   }
 
   // your other checks go here
@@ -73,68 +73,67 @@ for (let x=1;  x <= document.myBulletMax; x++){
 
 function myBulletFire(){
 
-  for (let x=1;  x <= document.myBulletMax; x++){
-     document.getElementById('myBullet'+x).style.left = parseInt(document.getElementById('myBullet'+x).style.left) + document.myBulletMove
-  }
+  for (let y=1;  y <= document.myBulletMax; y++){
+     document.getElementById('myBullet'+y).style.top = parseInt(document.getElementById('myBullet'+y).style.top) + document.myBulletMove
+ }
 
   myCheckAll()
 }
 
 </script>
 
+<body  onKeyUp="{
+     let myAlphaKey = event.key
+     document.getElementById('myDiv01').innerHTML = 'You typed: ' + myAlphaKey.toLowerCase()
 
-<body onkeydown="{
-    myIsOnScreen()
-    if (event.key == 'w'){
-        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
-    }
-    if (event.key == 'a'){
-        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - document.myXmove
-    }
-    if (event.key == 's'){
-        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
-    }
-    if (event.key == 'd'){
-     document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + document.myXmove
 
+      if (myAlphaKey.toLowerCase() == 'arrowright') {
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
+      if (myAlphaKey.toLowerCase() == 'w') {   // go up
+         document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
+         myCheckAll()
+      }
+      if (myAlphaKey.toLowerCase() == 'a') {   // go left
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
+         myCheckAll()
+      }
+      if (myAlphaKey.toLowerCase() == 's') {   // go down
+         document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
+         myCheckAll()
+      }
+      if (myAlphaKey.toLowerCase() == 'd') {   // go right
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
+      if (myAlphaKey.toLowerCase() == 'e') {   // fire gun
+        document.myNumBullets += 1
+    if (document.myNumBullets > document.myBulletMax){
+       document.myNumBullets = 1
     }
-    if (event.key == 'w'){
-        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01-1').style.top) - 10
-    }
-    if (event.key == 'a'){
-        document.getElementById('mySpan01-1').style.left = parseInt(document.getElementById('mySpan01-1').style.left) - + document.myXmove
-    }
-    if (event.key == 's'){
-        document.getElementById('mySpan01-1').style.top = parseInt(document.getElementById('mySpan01-1').style.top) + 10
-    }
-    if (event.key == 'd'){
-        document.getElementById('mySpan01-1').style.left = parseInt(document.getElementById('mySpan01-1').style.left ) + document.myXmove
-    }
-    <!-- capitals -->
-    if (event.key == 'W'){
-        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
-    }
-    if (event.key == 'A'){
-        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
-    }
-    if (event.key == 'S'){
-        document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
-    }
-    if (event.key == 'D'){
-        document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
 
+    document.getElementById('myBullet' + document.myNumBullets).style.top = document.getElementById('mySpan01').style.top
+    document.getElementById('myBullet' + document.myNumBullets).style.visibility= 'visible'
+
+    clearInterval(document.myBulletTimer)                    
+    document.myBulletTimer = setInterval( myBulletFire , document.myBulletDelay);
+         myCheckAll()
+         
+      }
 }">
 
 <h1 align=center>T4A16-bullet-name.html</h1>
 
 
-<input type=onkeydown onkeypress="{
+<input type=button value="Fire" onClick="{
     document.myNumBullets += 1
     if (document.myNumBullets > document.myBulletMax){
        document.myNumBullets = 1
     }
 
     document.getElementById('myBullet' + document.myNumBullets).style.left = document.getElementById('mySpan01').style.left
+    
     document.getElementById('myBullet' + document.myNumBullets).style.visibility= 'visible'
 
     clearInterval(document.myBulletTimer)                    
@@ -142,21 +141,21 @@ function myBulletFire(){
                         
 }">
 
-<input type= value="right" onClick="{
+<input type=button value="right" onClick="{
   document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + document.myXmove
 
   myCheckAll()
                         
 }">
-
+<div id="myDiv01">...</div>
 
 
 <span title="1" id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">
-<img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman1HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br>
+ <img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman1HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br>
 <span title="2"  id="mySpan02" style="position:absolute; left:300; top:150; width:45; height:30"> 
-<img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman2HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br>
+   Span 2 </span><br>
 <span title="3"  id="mySpan03" style="position:absolute; left:700; top:250; width:45; height:30"> 
-<img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman2HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br>
+   Span 3 </span><br>
 
 
 

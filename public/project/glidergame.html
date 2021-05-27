@@ -1,0 +1,191 @@
+
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+
+</html>
+<body onmousedown="{
+   
+  document.myGravity = -15
+  setTimeout(function(){ document.myGravity = 5 }, 100); 
+  myCheckAll()  
+}"
+></body>
+
+<body  onKeyDown="{
+     let myAlphaKey = event.key
+    
+      if (myAlphaKey.toLowerCase() == 'w') {   // go up
+           document.myGravity = -15
+           setTimeout(function(){ document.myGravity = 5 }, 100); 
+           myCheckAll()  
+
+      }
+}"></body>
+
+<script>
+
+// Global variables works anywhere in your code
+
+
+document.myGravity = 5
+
+document.myXmove = -4   // amount it moves in pixels
+document.myYmove = 5
+
+document.myXspeed = 50 // speed as a delay in milliseconds bigger is slower
+document.myYspeed = 20 
+
+document.myXtimer = 0;
+document.myYtimer = 0;
+document.myTimer2 = 0;
+
+
+function myHitOther(my1,my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+
+function myCheckAll(){
+
+
+if (parseInt(document.getElementById('myPlayer').style.top) -5  > window.innerHeight) { 
+    document.getElementById('myPlayer').style.top = '100px' 
+    alert('You Lose!')
+    location = 'glidergame.html'
+}
+  if(myHitOther('myPlayer', 'myCoin1')){
+    document.getElementById('myCoin1').style.left = '-400px'
+    document.getElementById('myTextScore').value = parseInt(document.getElementById('myTextScore').value) + 1
+  }
+  if(myHitOther('myPlayer', 'myCoin2')){
+    document.getElementById('myCoin2').style.left = '-400px'
+    document.getElementById('myTextScore').value = parseInt(document.getElementById('myTextScore').value) + 1
+  }
+  if(myHitOther('myPlayer', 'myCoin3')){
+    document.getElementById('myCoin3').style.left = '-400px'
+    document.getElementById('myTextScore').value = parseInt(document.getElementById('myTextScore').value) + 1
+  }
+  if(myHitOther('myPlayer', 'myCoin4')){
+    document.getElementById('myCoin4').style.left = '-400px'
+    document.getElementById('myTextScore').value = parseInt(document.getElementById('myTextScore').value) + 1
+  }
+  if(myHitOther('myPlayer', 'myEnemy1')){
+    document.getElementById('myTextLife').value = parseInt(document.getElementById('myTextLife').value) - 1
+  }
+  if(myHitOther('myPlayer', 'mySpan04')){
+    document.getElementById('mySpan04').style.left = '-400px'
+    alert('You Lose!')
+    location = 'glidergame.html'
+  }
+  if(myHitOther('myPlayer', 'myCoin1')){
+    document.getElementById('myEnemy1').style.left = '-400px'
+    alert('You Win!')
+    location = 'glidergame.html'
+  }
+
+  // your other checks go here
+
+  if(parseInt(document.getElementById('myTextLife').value)  <=0  ){    // life points at zero
+    alert('You Lose!')
+    location = 'glidergame.html'    // refresh page
+  }
+}
+
+
+function myXAuto(){
+
+  document.getElementById('myPlayer').style.top = parseInt(document.getElementById('myPlayer').style.top) + document.myGravity
+
+  document.getElementById('myCoin1').style.left = parseInt(document.getElementById('myCoin1').style.left) + document.myXmove 
+  document.getElementById('myCoin2').style.left = parseInt(document.getElementById('myCoin2').style.left) + document.myXmove 
+  document.getElementById('myCoin3').style.left = parseInt(document.getElementById('myCoin3').style.left) + document.myXmove 
+  document.getElementById('myCoin4').style.left = parseInt(document.getElementById('myCoin4').style.left) + document.myXmove 
+ 
+  ranX1 = Math.floor(Math.random()*10) -1
+  ranY1 = Math.floor(Math.random()*10) -1
+  document.getElementById('myEnemy1').style.left = parseInt(document.getElementById('myEnemy1').style.left) + document.myXmove 
+  document.getElementById('myEnemy1').style.left = parseInt(document.getElementById('myEnemy1').style.left) + Math.floor(Math.random()*10) -1 + document.myXmove 
+  document.getElementById('myEnemy1').style.top  = parseInt(document.getElementById('myEnemy1').style.top) + Math.floor(Math.random()*10) -1 + document.myXmove 
+
+  document.getElementById('myEnemy2').style.left = parseInt(document.getElementById('myEnemy2').style.left) + document.myXmove 
+  document.getElementById('myEnemy2').style.left = parseInt(document.getElementById('myEnemy2').style.left) + Math.floor(Math.random()*10) -1 + document.myXmove 
+  document.getElementById('myEnemy2').style.top  = parseInt(document.getElementById('myEnemy2').style.top) + Math.floor(Math.random()*10) -1 + document.myXmove 
+
+  document.getElementById('myEnemy3').style.left = parseInt(document.getElementById('myEnemy3').style.left) + document.myXmove 
+  document.getElementById('myEnemy3').style.left = parseInt(document.getElementById('myEnemy3').style.left) + Math.floor(Math.random()*10) -1 + document.myXmove 
+  document.getElementById('myEnemy3').style.top  = parseInt(document.getElementById('myEnemy3').style.top) + Math.floor(Math.random()*10) -1 + document.myXmove 
+
+  document.getElementById('myEnemy4').style.left = parseInt(document.getElementById('myEnemy4').style.left) + document.myXmove 
+  document.getElementById('myEnemy4').style.left = parseInt(document.getElementById('myEnemy4').style.left) + Math.floor(Math.random()*10) -1 + document.myXmove 
+  document.getElementById('myEnemy4').style.top  = parseInt(document.getElementById('myEnemy4').style.top) + Math.floor(Math.random()*10) -1 + document.myXmove 
+
+  document.getElementById('').style.left = parseInt(document.getElementById('mySpan04').style.left) + document.myXmove 
+ 
+
+  myCheckAll()
+}
+
+clearInterval(document.myXtimer)                    
+document.myXtimer = setInterval( myXAuto , document.myXspeed);
+
+</script>
+<script>
+   let myInterval
+function myIsOnScreen(){
+    if (parseInt(document.getElementById('myEnemy2').style.left) > 1430) {
+        document.getElementById('myEnemy2').style.left = '7px'
+    }
+    if (parseInt(document.getElementById('myEnemy2').style.left) < 10) {
+        document.getElementById('myEnemy2').style.left = '275'
+    }
+
+
+}
+</script>
+
+<h1 align=center>Glider Game</h1>
+
+
+Score: <input id="myTextScore" type=text value=0 ><br>
+
+Life: <input id="myTextLife" type=number value=20 ><br><br>
+<!--
+<input type=button value="helper button" onClick="{
+  alert()
+                        
+}">
+-->
+
+
+<span title="1" id="myPlayer" style="position:absolute; left:100; top:120; width:45; height:45"><img src="https://github.com/mariofish/fischer-coding-2019/blob/master/public/assets/horseman1HD.gif?raw=true" alt="Blue" width="65" height="65"></span><br>
+<span title="1"  id="myCoin1" style="position:absolute; left:900; top:100; width:45; height:45"> myCoin1</span><br>
+<span title="1"  id="myCoin2" style="position:absolute; left:1000; top:150; width:45; height:45"> myCoin2</span><br>
+<span title="1"  id="myCoin3" style="position:absolute; left:900; top:100; width:45; height:45"> myCoin3</span><br>
+<span title="1"  id="myCoin4" style="position:absolute; left:900; top:150; width:45; height:45"> myCoin4</span><br>
+<span title="1"  id="myEnemy1" style="position:absolute; left:900; top:300; width:30; height:30"> <img src="https://github.com/mariofish/fischer-coding-2021/blob/main/public/assets/Seagull.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br>
+<span title="1"  id="myEnemy2" style="position:absolute; left:1200; top:300; width:30; height:30"> <img src="https://github.com/mariofish/fischer-coding-2021/blob/main/public/assets/Seagull.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br></span><br>
+<span title="1"  id="myEnemy3" style="position:absolute; left:1000; top:300; width:30; height:30"> <img src="https://github.com/mariofish/fischer-coding-2021/blob/main/public/assets/Seagull.gif?raw=true" alt="Blue" width="65" height="65"></span><br></span><br></span><br>
+
+
+
+
+</body>​
